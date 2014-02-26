@@ -1,0 +1,19 @@
+Django==1.6.2
+South==0.8.4
+argparse==1.2.1
+distribute==0.6.34
+dj-database-url==0.2.2
+dj-static==0.0.5
+django-classy-tags==0.4
+-e git+https://github.com/divio/django-cms.git@be1fdcd78a2cca0edc495f23dffb98e194d40081#egg=django_cms-dev
+django-mptt==0.5.2
+django-sekizai==0.7
+django-toolbelt==0.0.1
+djangocms-admin-style==0.2.0
+gunicorn==18.0
+html5lib==1.0b3
+psycopg2==2.5.2
+pystache==0.5.3
+six==1.5.2
+static==1.0.2
+wsgiref==0.1.2
