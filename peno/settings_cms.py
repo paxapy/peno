@@ -5,7 +5,6 @@ DEBUG = True
 
 CMS_TEMPLATES = (
     ('base.html', u'Обычный'),
-    ('index.html', u'Главная'),
 )
 
 INSTALLED_APPS += (
