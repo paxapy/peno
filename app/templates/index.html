@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load cms_tags %}
+{% load thumbnail %}
+{% block carousel %}
+ <div id="myCarousel" class="carousel slide" data-ride="carousel">
+     <ol class="carousel-indicators">
+         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+         <li data-target="#myCarousel" data-slide-to="1"></li>
+         <li data-target="#myCarousel" data-slide-to="2"></li>
+     </ol>
+     <div class="carousel-inner">
+         <div class="item active">
+             <img src="{{ STATIC_URL }}/img/slide1.jpg" alt="First slide">
+             <div class="container">
+                 <div class="carousel-caption">
+                     <h1>{% static_placeholder 'slide1_title' %}</h1>
+                     <p>{% static_placeholder 'slide1_text' %}</p>
+                 </div>
+             </div>
+         </div>
+         <div class="item">
+             <img src="{{ STATIC_URL }}/img/slide2.jpg" alt="Second slide">
+             <div class="container">
+                 <div class="carousel-caption">
+                     <h1>{% static_placeholder 'slide2_title' %}</h1>
+                     <p>{% static_placeholder 'slide2_text' %}</p>
+                 </div>
+             </div>
+         </div>
+         <div class="item">
+             <img src="{{ STATIC_URL }}/img/slide3.jpg" alt="Third slide">
+             <div class="container">
+                 <div class="carousel-caption">
+                     <h1>{% static_placeholder 'slide3_title' %}</h1>
+                     <p>{% static_placeholder 'slide3_text' %}</p>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+     <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+ </div>
+{% endblock carousel %}
+{% block base_content %}
+<hr class="featurette-divider">
+{% for entry in posts %}
+    <div class="row featurette">
+        {% if forloop.counter|divisibleby:'2' %}
+            <div class="col-md-5">
+                <img class="featurette-image img-responsive" src="{% thumbnail entry.image 500x500 crop %}">
+            </div>
+        {% endif %}
+        <div class="col-md-7">
+            <h2 class="featurette-heading">
+                {{ entry.title }}
+                {% if entry.subtitle %}<span class="text-muted">{{ entry.subtitle }}</span>{% endif %}
+            </h2>
+            <p class="lead">{{ entry.text }}</p>
+        </div>
+        {% if not forloop.counter|divisibleby:'2' %}
+            <div class="col-md-5">
+                <img class="featurette-image img-responsive" src="{% thumbnail entry.image 500x500 crop %}">
+            </div>
+        {% endif %}
+    </div>
+    <hr class="featurette-divider">
+{% empty %}
+    <h3>Нет новостей. Пока что</h3>
+{% endfor %}
+{% endblock base_content %}
