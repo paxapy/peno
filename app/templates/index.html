@@ -56,7 +56,7 @@
                     {% if entry.subtitle %}<span class="text-muted">{{ entry.subtitle }}</span>{% endif %}
                 </h2>
             </a>
-            <p class="lead">{{ entry.text }}</p>
+            <p class="lead">{{ entry.intro }}</p>
         </div>
         {% if not forloop.counter|divisibleby:'2' %}
             <div class="col-md-5">
