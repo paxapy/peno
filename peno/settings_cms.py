@@ -9,7 +9,6 @@ CMS_TEMPLATES = (
 
 INSTALLED_APPS += (
     'djangocms_text_ckeditor',
-    'djangocms_picture',
 
     'cms',
     'mptt',
@@ -17,7 +16,6 @@ INSTALLED_APPS += (
     'south',
     'sekizai',
     'djangocms_admin_style',
-    'easy_thumbnails',
     'django.contrib.messages',
     'django.contrib.sites',
 
@@ -47,3 +45,14 @@ SITE_ID = 1
 LANGUAGES = [
     ('ru', u'Русский'),
 ]
+
+UPLOADCARE = {
+    'pub_key': '0ebef9203240bffa9bd4',
+    'secret': 'c6529f282546f338c61f',
+}
+
+CKEDITOR_SETTINGS = {
+    'language': '{{ language }}',
+    'toolbar': 'HTMLField',
+    'skin': 'moono',
+}

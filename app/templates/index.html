@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% load cms_tags %}
-{% load thumbnail %}
 {% block carousel %}
  <div id="myCarousel" class="carousel slide" data-ride="carousel">
      <ol class="carousel-indicators">
@@ -47,7 +46,7 @@
     <div class="row featurette">
         {% if forloop.counter|divisibleby:'2' %}
             <div class="col-md-5">
-                <img class="featurette-image img-responsive" src="{% thumbnail entry.image 500x500 crop %}">
+                <img class="featurette-image img-responsive" src="{{ entry.image.cdn_url }}-/scale_crop/500x500/center/">
             </div>
         {% endif %}
         <div class="col-md-7">
@@ -59,7 +58,7 @@
         </div>
         {% if not forloop.counter|divisibleby:'2' %}
             <div class="col-md-5">
-                <img class="featurette-image img-responsive" src="{% thumbnail entry.image 500x500 crop %}">
+                <img class="featurette-image img-responsive" src="{{ entry.image.cdn_url }}-/scale_crop/500x500/center/">
             </div>
         {% endif %}
     </div>

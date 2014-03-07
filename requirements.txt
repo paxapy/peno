@@ -11,13 +11,14 @@ django-mptt==0.6.0
 django-sekizai==0.7
 django-toolbelt==0.0.1
 djangocms-admin-style==0.2.0
-djangocms-picture==0.0.2
 djangocms-text-ckeditor==2.1.2
-easy-thumbnails==1.4
 gunicorn==18.0
 html5lib==1.0b3
 psycopg2==2.5.2
 pystache==0.5.3
+python-dateutil==2.2
+pyuploadcare==1.2.3
+requests==2.2.1
 six==1.5.2
 static==1.0.2
 wsgiref==0.1.2

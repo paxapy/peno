@@ -66,3 +66,7 @@ MEDIA_URL = '/media/'
 
 from settings_heroku import *
 from settings_cms import *
+try:
+    from settings_local import *
+except ImportError:
+    pass
