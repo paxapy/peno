@@ -9,7 +9,9 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="{{ STATIC_URL }}/favicon.ico">
     {% render_block "css" %}
-    <title>{% page_attribute 'page_title' %}</title>
+    <title>
+        {% block title %}{% page_attribute 'page_title' %}{% endblock title %}
+    </title>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -48,11 +50,11 @@
     </div>
     {% block carousel %}{% endblock carousel %}
     <div class="container marketing">
+        <hr class="featurette-divider">
         {% block base_content %}
-            <hr class="featurette-divider">
             {% placeholder base_content %}
-            <hr class="featurette-divider">
         {% endblock base_content %}
+        <hr class="featurette-divider">
         <footer>
             <p class="pull-right"><a href="#">Наверх</a></p>
             <p>&copy; 2014 Администрация поселка Пено. &middot; <a href="#">О сайте</a> &middot; <a href="#">Контакты</a></p>

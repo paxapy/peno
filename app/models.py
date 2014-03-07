@@ -2,13 +2,15 @@
 from django.db import models
 
 from cms.models import CMSPlugin
+from djangocms_text_ckeditor.fields import HTMLField
 from pyuploadcare.dj import ImageField
 
 
 class Post(models.Model):
     title = models.CharField(u'Название', max_length=142)
     subtitle = models.CharField(u'Подзаголовок', max_length=142, blank=True)
-    text = models.TextField(u'Текст')
+    intro = models.TextField(u'Вступление', blank=True)
+    text = HTMLField(u'Текст')
     image = ImageField(verbose_name=u'Картинка', manual_crop='640x480')
 
     class Meta:

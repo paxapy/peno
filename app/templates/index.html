@@ -40,8 +40,8 @@
      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
  </div>
 {% endblock carousel %}
+
 {% block base_content %}
-<hr class="featurette-divider">
 {% for entry in posts %}
     <div class="row featurette">
         {% if forloop.counter|divisibleby:'2' %}
@@ -50,10 +50,12 @@
             </div>
         {% endif %}
         <div class="col-md-7">
-            <h2 class="featurette-heading">
-                {{ entry.title }}
-                {% if entry.subtitle %}<span class="text-muted">{{ entry.subtitle }}</span>{% endif %}
-            </h2>
+            <a href="{% url 'post_detail' entry.pk %}">
+                <h2 class="featurette-heading">
+                    {{ entry.title }}
+                    {% if entry.subtitle %}<span class="text-muted">{{ entry.subtitle }}</span>{% endif %}
+                </h2>
+            </a>
             <p class="lead">{{ entry.text }}</p>
         </div>
         {% if not forloop.counter|divisibleby:'2' %}
@@ -62,7 +64,6 @@
             </div>
         {% endif %}
     </div>
-    <hr class="featurette-divider">
 {% empty %}
     <h3>Нет новостей. Пока что</h3>
 {% endfor %}
