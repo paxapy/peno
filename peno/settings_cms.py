@@ -10,6 +10,8 @@ CMS_TEMPLATES = (
 INSTALLED_APPS += (
     'djangocms_text_ckeditor',
 
+    'app',
+
     'cms',
     'mptt',
     'menus',
@@ -18,8 +20,6 @@ INSTALLED_APPS += (
     'djangocms_admin_style',
     'django.contrib.messages',
     'django.contrib.sites',
-
-    'app',
 )
 
 MIDDLEWARE_CLASSES += (
